@@ -4,7 +4,7 @@ window.addEventListener("load",function(){
 	preloader.classList.add("opacity-0");
 	setTimeout(function(){
 		preloader.style.display = "none";
-	},2000);
+	},1000);
 })
 
 //Navigate through the navbar anchor links
