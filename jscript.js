@@ -1,62 +1,49 @@
-//Preloader
+//Elements
 const preloader = document.querySelector(".preloader");
-window.addEventListener("load",function(){
-	preloader.classList.add("opacity-0");
-	setTimeout(function(){
-		preloader.style.display = "none";
-	},1000);
-})
+const navbar = document.querySelector(".navbar");
+const navLink = navbar.querySelectorAll("a");
+const allSections = document.querySelectorAll(".section");
+const navbarBtn = document.querySelector(".navbar-btn");
+const sidebar = document.querySelector(".sideBar");
+
+//Preloader
+window.addEventListener("load", () => {
+  preloader.classList.add("hidden");
+});
 
 //Navigate through the navbar anchor links
+const showSection = function (navLink) {
+  allSections.forEach((section) => {
+    section.classList.remove("back-section");
+    if (section.classList.contains("active")) {
+      section.classList.add("back-section");
+    }
+    section.classList.remove("active");
+  });
+  const id = navLink.getAttribute("href");
+  const section = document.querySelector(id);
+  section.classList.add("active");
+};
 
- const navbar = document.querySelector(".navbar");
- const navList = navbar.querySelectorAll("li");
- const navListSize = navList.length;
- const allSection = document.querySelectorAll(".section");
- const sectionSize = allSection.length;
+navbar.addEventListener("click", function (e) {
+  const clickedLink = e.target.closest("a");
+  //activate clicked navbar link
+  navLink.forEach((link) => link.classList.remove("active"));
+  clickedLink.classList.add("active");
 
- 
- const showSection = function(elem){
- 	for(let i=0; i<sectionSize; i++){
-        allSection[i].classList.remove("active");
- 	}
- 	const target = elem.getAttribute("href").split("#")[1];
- 	document.querySelector("#"+target).classList.add("active");
- }
+  //show section of clicked navbar link
+  showSection(clickedLink);
 
- for(let i=0; i<navListSize; i++){
- 	const link = navList[i].querySelector("a");
- 	link.addEventListener("click",function(){
+  //remove sidebar in responsive mode
+  if (sidebar.classList.contains("show")) {
+    showSidebar();
+  }
+});
 
- 		for(let i=0; i<sectionSize; i++){
-        	allSection[i].classList.remove("back-section");
- 		}
+//show sidebar using navbar-btn in responsive mode
+const showSidebar = function () {
+  sidebar.classList.toggle("show");
+  navbarBtn.classList.toggle("show");
+};
 
- 		for(let j=0; j<navListSize; j++){
- 			if(navList[j].querySelector("a").classList.contains("active")){
- 				allSection[j].classList.add("back-section");
- 			}
-            navList[j].querySelector("a").classList.remove("active");
- 		}
- 		this.classList.add("active");
- 		showSection(this);
- 		if(window.innerWidth < 1200){
- 			showSidebar();
- 		}
- 	})
- }
-
- //show sidebar using navbar-btn in responsive mode
-
- const navbarBtn = document.querySelector(".navbar-btn");
- const sidebar = document.querySelector(".sideBar");
-
- const showSidebar = function(){
- 	sidebar.classList.toggle("show");
- 	navbarBtn.classList.toggle("show");
- 	for(let i=0; i<sectionSize; i++){
-        	allSection[i].classList.toggle("show");
- 		}
- }
-
- navbarBtn.addEventListener("click",showSidebar);
+navbarBtn.addEventListener("click", showSidebar);
