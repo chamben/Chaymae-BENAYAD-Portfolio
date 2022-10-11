@@ -13,6 +13,7 @@
 .sideBar .navbar li .active {
   color: #ffb400;
 }
+.project .project-item .project-info a,
 .skill .skill-item .skill-item-content:hover .icon,
 .home .intro .btn,
 .home .intro .social-media-links a,

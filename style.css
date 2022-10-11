@@ -348,7 +348,8 @@ body {
 .home .intro .social-media-links {
   margin-top: 25px;
 }
-.home .intro .social-media-links a {
+.home .intro .social-media-links a,
+.project .project-item .project-info .demo-btns a {
   width: 35px;
   height: 35px;
   line-height: 35px;
@@ -361,7 +362,8 @@ body {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-.home .intro .social-media-links a:hover {
+.home .intro .social-media-links a:hover,
+.project .project-item .project-info .demo-btns a:hover {
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
 }
@@ -492,6 +494,7 @@ body {
 }
 .project .project-item .project-img img {
   width: 100%;
+  height: 300px;
   display: block;
 }
 .project .project-item .project-info {
@@ -513,21 +516,21 @@ body {
   text-align: center;
   color: var(--color-text);
 }
-.project .project-item .project-info h4 a {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--color-text);
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  -webkit-transform: translateX(-20px);
-  transform: translateX(-20px);
-  opacity: 0;
-  text-decoration: underline;
+.project .project-item .project-info .demo-btns {
+  display: flex;
+  height: 100%;
+  align-items: center; /* aligns vertically */
+  justify-content: center; /* aligns horizontally */
+  gap: 20px;
 }
-.project .project-item-content:hover .project-info h4 a {
-  opacity: 1;
-  -webkit-transform: translateX(0px);
-  transform: translateX(0px);
+.project .project-item .project-info .demo-btns a {
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+}
+.project .project-item .project-info .demo-btns a .fa {
+  font-size: 28px;
+  line-height: 52px;
 }
 
 /****Responsive****/
@@ -638,9 +641,6 @@ body {
   .project .project-item .project-title {
     font-size: 15px;
   }
-  .project .project-item .project-info h4 a {
-    font-size: 16px;
-  }
 }
 @media (max-width: 375px) {
   /*home*/
@@ -707,7 +707,13 @@ body {
   .project .project-item .project-title {
     font-size: 13px;
   }
-  .project .project-item .project-info h4 a {
-    font-size: 14px;
+  .project .project-item .project-info .demo-btns a {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+  }
+  .project .project-item .project-info .demo-btns a .fa {
+    font-size: 20px;
+    line-height: 40px;
   }
 }
