@@ -705,7 +705,10 @@ body {
   }
   /*project*/
   .project .project-item .project-title {
-    font-size: 13px;
+    font-size: 10px;
+  }
+  .project .project-item .project-img img {
+    height: 150px;
   }
   .project .project-item .project-info .demo-btns a {
     width: 40px;
