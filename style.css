@@ -511,7 +511,11 @@ body {
 .project .project-item-content:hover .project-info {
   opacity: 1;
 }
-.project .project-item .project-title {
+.project .project-item .project-title{
+  font-weight: bold;
+  
+}
+.project .project-item .project-description {
   margin: 20px 0;
   text-align: center;
   color: var(--color-text);
@@ -638,7 +642,7 @@ body {
     font-size: 25px;
   }
   /*project*/
-  .project .project-item .project-title {
+  .project .project-item .project-description {
     font-size: 15px;
   }
 }
@@ -704,7 +708,7 @@ body {
     font-size: 20px;
   }
   /*project*/
-  .project .project-item .project-title {
+  .project .project-item .project-description {
     font-size: 10px;
   }
   .project .project-item .project-img img {
