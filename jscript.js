@@ -6,48 +6,33 @@ const allSections = document.querySelectorAll(".section");
 const navbarBtn = document.querySelector(".navbar-btn");
 const sidebar = document.querySelector(".sideBar");
 const projectsContainer = document.querySelector("#project-container");
+const skillsContainer = document.querySelector("#skill-container");
 
-//Preloader
-window.addEventListener("load", () => {
-  preloader.classList.add("hidden");
-  getAllprojectsData();
-});
+//get my skills data from my fake api
+const getAllskillsData = async function () {
+  const response = await fetch(
+    "https://chamben.github.io/skills-fake-api/skillsData.json"
+  );
+  const skillsData = await response.json();
+  displaySkills(skillsData);
+};
 
-//Navigate through the navbar anchor links
-const showSection = function (navLink) {
-  allSections.forEach((section) => {
-    section.classList.remove("back-section");
-    if (section.classList.contains("active")) {
-      section.classList.add("back-section");
-    }
-    section.classList.remove("active");
+// display skills data
+const displaySkills = function (skills) {
+  const val = "fab fa-html5";
+  skills.map((skill) => {
+    const html = `
+    <div class="skill-item padding-15">
+      <div class="skill-item-content padding-15">
+        <div class="icon"><i class="${skill.iconClassName.join(" ")}"></i></div>
+        <h4>${skill.name}</h4>
+        <p>${skill.description}</p>
+      </div>
+    </div>
+    `;
+    skillsContainer.insertAdjacentHTML("beforeend", html);
   });
-  const id = navLink.getAttribute("href");
-  const section = document.querySelector(id);
-  section.classList.add("active");
 };
-
-navbar.addEventListener("click", function (e) {
-  const clickedLink = e.target.closest("a");
-  //activate clicked navbar link
-  navLink.forEach((link) => link.classList.remove("active"));
-  clickedLink.classList.add("active");
-
-  //show section of clicked navbar link
-  showSection(clickedLink);
-
-  //remove sidebar in responsive mode
-  if (sidebar.classList.contains("show")) {
-    showSidebar();
-  }
-});
-
-//show sidebar using navbar-btn in responsive mode
-const showSidebar = function () {
-  sidebar.classList.toggle("show");
-  navbarBtn.classList.toggle("show");
-};
-navbarBtn.addEventListener("click", showSidebar);
 
 //get my projects data from my fake api
 const getAllprojectsData = async function () {
@@ -55,7 +40,6 @@ const getAllprojectsData = async function () {
     "https://chamben.github.io/projects-fake-api/projectsData.json"
   );
   const data = await response.json();
-  console.log(data);
   const projectsData = data.map((project, index) => {
     return {
       id: index + 1,
@@ -97,3 +81,46 @@ const displayProjects = function (projects) {
     projectsContainer.insertAdjacentHTML("beforeend", html);
   });
 };
+
+//Preloader
+window.addEventListener("load", () => {
+  preloader.classList.add("hidden");
+  getAllskillsData();
+  getAllprojectsData();
+});
+
+//Navigate through the navbar anchor links
+const showSection = function (navLink) {
+  allSections.forEach((section) => {
+    section.classList.remove("back-section");
+    if (section.classList.contains("active")) {
+      section.classList.add("back-section");
+    }
+    section.classList.remove("active");
+  });
+  const id = navLink.getAttribute("href");
+  const section = document.querySelector(id);
+  section.classList.add("active");
+};
+
+navbar.addEventListener("click", function (e) {
+  const clickedLink = e.target.closest("a");
+  //activate clicked navbar link
+  navLink.forEach((link) => link.classList.remove("active"));
+  clickedLink.classList.add("active");
+
+  //show section of clicked navbar link
+  showSection(clickedLink);
+
+  //remove sidebar in responsive mode
+  if (sidebar.classList.contains("show")) {
+    showSidebar();
+  }
+});
+
+//show sidebar using navbar-btn in responsive mode
+const showSidebar = function () {
+  sidebar.classList.toggle("show");
+  navbarBtn.classList.toggle("show");
+};
+navbarBtn.addEventListener("click", showSidebar);

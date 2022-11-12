@@ -1,5 +1,5 @@
 /*Font awesome icons*/
-@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+/* @import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"); */
 /*Google fonts*/
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;900&display=swap");
@@ -461,13 +461,13 @@ body {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-.skill .skill-item .skill-item-content .icon .fa {
+.skill .skill-item .skill-item-content .icon i {
   font-size: 40px;
   line-height: 60px;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-.skill .skill-item .skill-item-content:hover .icon .fa {
+.skill .skill-item .skill-item-content:hover .icon i {
   font-size: 25px;
   color: var(--color-border);
 }
@@ -511,9 +511,8 @@ body {
 .project .project-item-content:hover .project-info {
   opacity: 1;
 }
-.project .project-item .project-title{
+.project .project-item .project-title {
   font-weight: bold;
-  
 }
 .project .project-item .project-description {
   margin: 20px 0;
@@ -634,12 +633,13 @@ body {
     width: 55px;
     height: 55px;
   }
-  .skill .skill-item .skill-item-content .icon .fa {
+  .skill .skill-item .skill-item-content .icon i {
     font-size: 32px;
     line-height: 45px;
   }
-  .skill .skill-item .skill-item-content:hover .icon .fa {
+  .skill .skill-item .skill-item-content:hover .icon i {
     font-size: 25px;
+    line-height: 55px;
   }
   /*project*/
   .project .project-item .project-description {
@@ -700,12 +700,13 @@ body {
     width: 45px;
     height: 45px;
   }
-  .skill .skill-item .skill-item-content .icon .fa {
+  .skill .skill-item .skill-item-content .icon i {
     font-size: 28px;
     line-height: 40px;
   }
-  .skill .skill-item .skill-item-content:hover .icon .fa {
+  .skill .skill-item .skill-item-content:hover .icon i {
     font-size: 20px;
+    line-height: 45px;
   }
   /*project*/
   .project .project-item .project-description {
