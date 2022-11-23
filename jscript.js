@@ -85,9 +85,14 @@ const displayProjects = function (projects) {
 //Preloader
 window.addEventListener("load", () => {
   preloader.classList.add("hidden");
+});
+
+//get data
+const init = () => {
   getAllskillsData();
   getAllprojectsData();
-});
+};
+init();
 
 //Navigate through the navbar anchor links
 const showSection = function (navLink) {
